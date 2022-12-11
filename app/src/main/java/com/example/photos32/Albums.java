@@ -2,7 +2,10 @@ package com.example.photos32;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -18,6 +21,15 @@ public class Albums extends AppCompatActivity {
     private ArrayList<Album> albums;
     private ListView listView;
     private String path;
+
+    private void editAlbum(Object o) {
+        Album a = (Album) o;
+        Bundle bundle = new Bundle();
+        bundle.putString("album_name", a.getName());
+        Intent intent = new Intent(this, AddEditAlbum.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +66,13 @@ public class Albums extends AppCompatActivity {
         ArrayAdapter<Album> adapter = new ArrayAdapter<>(this, R.layout.albums_list, albums);
         adapter.setNotifyOnChange(true);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                editAlbum(listView.getItemAtPosition(position));
+            }
+        });
 
     }
 }
