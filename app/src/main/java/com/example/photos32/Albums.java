@@ -1,6 +1,7 @@
 package com.example.photos32;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,6 +36,8 @@ public class Albums extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.albums_list);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
         listView = findViewById(R.id.albums_list);
 
         path = this.getApplicationInfo().dataDir + "/data.dat";
