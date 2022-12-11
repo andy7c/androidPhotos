@@ -12,9 +12,9 @@
     <list default="true" id="ba4ebe01-676b-418b-af27-3b4a42a2b727" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/AddEditAlbum.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/AddEditAlbum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/AddEditAlbum.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/ShowAlbum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/Albums.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/Albums.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/add_edit_album.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/add_edit_album.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/add_edit_album.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/albums_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/albums_list.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,5 +128,16 @@
       <updated>1670784268884</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

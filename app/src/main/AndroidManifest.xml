@@ -13,14 +13,6 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".AddEditAlbum"
-            android:exported="false"
-            android:parentActivityName="com.example.photos32.Albums">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".Albums"
             android:exported="true">
             <intent-filter>

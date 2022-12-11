@@ -3,19 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Albums">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#00ff00"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
     <ListView
         android:id="@+id/albums_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="554dp" />
+
+    <Button
+        android:id="@+id/add_album"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:onClick="addAlbum"
+        android:text="Add Album" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="313dp"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
 </LinearLayout>

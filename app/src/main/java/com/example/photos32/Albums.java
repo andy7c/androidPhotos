@@ -1,7 +1,6 @@
 package com.example.photos32;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,21 +22,11 @@ public class Albums extends AppCompatActivity {
     private ListView listView;
     private String path;
 
-    private void editAlbum(Object o) {
-        Album a = (Album) o;
-        Bundle bundle = new Bundle();
-        bundle.putString("album_name", a.getName());
-        Intent intent = new Intent(this, AddEditAlbum.class);
-        intent.putExtras(bundle);
-        startActivity(intent);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.albums_list);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
+
         listView = findViewById(R.id.albums_list);
 
         path = this.getApplicationInfo().dataDir + "/data.dat";
@@ -73,7 +62,6 @@ public class Albums extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                editAlbum(listView.getItemAtPosition(position));
             }
         });
 
