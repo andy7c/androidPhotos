@@ -66,6 +66,23 @@ public class Albums extends AppCompatActivity {
         });
 
     }
+    public void openAlbum(View view) {
+        //make intent and bundle and send to new screen
+        Object o = listView.getItemAtPosition(listView.getCheckedItemPosition());
+        if (o == null) {
+            //error
+            System.out.println("nothing selected");
+            return;
+        }
+        Album a = (Album) o;
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("albums", albums);
+        bundle.putInt("position", listView.getCheckedItemPosition());
+        Intent intent = new Intent(this, OpenAlbum.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
     public void addAlbum(View view) {
         final AlertDialog.Builder b = new AlertDialog.Builder(this);
         final ArrayAdapter<Album> adapter = (ArrayAdapter<Album>) listView.getAdapter();
