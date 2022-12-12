@@ -10,10 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba4ebe01-676b-418b-af27-3b4a42a2b727" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/CheckableGridLayout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/Albums.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/Albums.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/OpenAlbum.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/OpenAlbum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/PhotoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/PhotoList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/open_album.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/open_album.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_item.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +51,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="android-custom-view/Users/ahmedishaque/Desktop/Photos32/app/src/main/java/com/example/photos32/CheckableGridLayout.java_SELECTED" value="CheckableGridLayout" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
   </component>

@@ -14,6 +14,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.photos32.models.Album;
@@ -47,6 +49,14 @@ public class OpenAlbum extends AppCompatActivity {
         PhotoList photoList = new PhotoList(this, curr.getPhotos());
         photoList.setNotifyOnChange(true);
         listView.setAdapter(photoList);
+        listView.setChoiceMode(1);
+        listView.setItemsCanFocus(false);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                listView.setItemChecked(position, true);
+            }
+        });
 
         registerActivities();
     }
@@ -59,9 +69,9 @@ public class OpenAlbum extends AppCompatActivity {
                     public void onActivityResult(ActivityResult result) {
                         if (result.getResultCode() == Activity.RESULT_OK) {
                             // There are no request codes
-                            Intent resultData = result.getData();
-                            if (resultData != null) {
-                                Uri uri = resultData.getData();
+                            Intent data = result.getData();
+                            if (data != null) {
+                                Uri uri = data.getData();
                                 Bitmap bitmap = null;
                                 try {
                                     ParcelFileDescriptor pfd = getContentResolver().openFileDescriptor(uri, "r");
@@ -92,6 +102,22 @@ public class OpenAlbum extends AppCompatActivity {
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("image/*");
         addPhotoActivity.launch(intent);
+    }
+
+    public void removePhoto(View view) {
+        Object o = listView.getItemAtPosition(listView.getCheckedItemPosition());
+        if (o == null) {
+            //error
+            return;
+        }
+        /*
+        * Add in some kind of "are you sure you want to delete?" here
+        * */
+        Photo photo = (Photo) o;
+        PhotoList p = (PhotoList) listView.getAdapter();
+        p.remove(photo);
+        p.notifyDataSetChanged();
+        DataHelper.save(albums, path);
     }
 
 

@@ -71,7 +71,6 @@ public class Albums extends AppCompatActivity {
         Object o = listView.getItemAtPosition(listView.getCheckedItemPosition());
         if (o == null) {
             //error
-            System.out.println("nothing selected");
             return;
         }
         Album a = (Album) o;

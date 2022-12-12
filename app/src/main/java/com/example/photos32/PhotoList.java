@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Checkable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 public class PhotoList extends ArrayAdapter {
     private ArrayList<Photo> photos;
     private Activity context;
+    private boolean isChecked;
 
     public PhotoList(Activity context, ArrayList<Photo> p) {
         super(context, R.layout.row_item, p);
