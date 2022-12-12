@@ -27,7 +27,7 @@
         <Button
             android:id="@+id/previous"
             android:layout_width="113dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="11dp"
             android:layout_marginRight="160dp"
             android:layout_height="wrap_content"
             android:text="Previous" />
