@@ -119,6 +119,7 @@ public class Albums extends AppCompatActivity {
                     al.add(adapter.getItem(i));
                 }
                 DataHelper.save(al, path);
+                adapter.notifyDataSetChanged();
             }
         });
         b.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
