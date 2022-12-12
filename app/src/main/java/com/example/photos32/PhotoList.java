@@ -18,13 +18,14 @@ public class PhotoList extends ArrayAdapter {
 
     public PhotoList(Activity context, ArrayList<Photo> p) {
         super(context, R.layout.row_item, p);
+        photos = p;
         this.context = context;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Photo p = photos.get(position);
-        View row=convertView;
+        View row = convertView;
         LayoutInflater inflater = context.getLayoutInflater();
         if(convertView==null)
             row = inflater.inflate(R.layout.row_item, null, true);
