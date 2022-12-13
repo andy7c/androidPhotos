@@ -12,21 +12,28 @@ import java.util.ArrayList;
 
 public class Display extends AppCompatActivity {
     private ArrayList<Photo> photos;
-    private int position;
+    private Photo curr;
+    private int photo_position;
+    private int album_position;
+    private ImageView image;
+    private TextView caption;
+
+    private void updateDisplay() {
+        image.setImageBitmap(curr.image.getBitmap());
+        caption.setText(curr.caption);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display);
         Bundle bundle = getIntent().getExtras();
-        photos =  (ArrayList<Photo>) bundle.getSerializable("photos");
-        position = bundle.getInt("position");
-        Photo p = photos.get(position);
-        ImageView image = findViewById(R.id.picture);
-        image.setImageBitmap(p.image.getBitmap());
-        TextView caption = findViewById(R.id.captionText);
-        caption.setText(p.caption);
-
-
+        photo_position = bundle.getInt("photo_position");
+        album_position = bundle.getInt("album_position");
+        photos = Albums.albums.get(album_position).getPhotos();
+        curr = photos.get(photo_position);
+        image = findViewById(R.id.picture);
+        caption = findViewById(R.id.captionText);
+        updateDisplay();
     }
 }

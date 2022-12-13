@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class Albums extends AppCompatActivity {
     private ListView listView;
-    private ArrayList<Album> albums;
+    public static ArrayList<Album> albums;
     private String path;
 
     @Override
@@ -69,16 +69,18 @@ public class Albums extends AppCompatActivity {
     public void openAlbum(View view) {
         //make intent and bundle and send to new screen
         Object o = listView.getItemAtPosition(listView.getCheckedItemPosition());
+        System.out.println("Opening albums");
         if (o == null) {
             //error
+            System.out.println("this is what's happening");
             return;
         }
         Album a = (Album) o;
         Bundle bundle = new Bundle();
-        bundle.putSerializable("albums", albums);
-        bundle.putInt("position", listView.getCheckedItemPosition());
+        bundle.putInt("album_position", listView.getCheckedItemPosition());
         Intent intent = new Intent(this, OpenAlbum.class);
         intent.putExtras(bundle);
+        System.out.println("starting activity");
         startActivity(intent);
     }
 

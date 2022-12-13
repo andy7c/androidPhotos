@@ -28,11 +28,11 @@ import java.util.ArrayList;
 
 public class OpenAlbum extends AppCompatActivity {
 
+    ArrayList<Album> albums;
     private ListView listView;
     private String path;
-    private ArrayList<Album> albums;
-    private int position;
-    private Album curr;
+    private int album_position;
+    private Album curr_album;
     ActivityResultLauncher<Intent> addPhotoActivity;
 
     @Override
@@ -40,14 +40,14 @@ public class OpenAlbum extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.open_album);
         path = this.getApplicationInfo().dataDir + "/data.dat";
+        albums = Albums.albums;
 
+        System.out.println("in OpenAlbum.java now");
         Bundle bundle = getIntent().getExtras();
-        albums = (ArrayList<Album>) bundle.getSerializable("albums");
-        position = bundle.getInt("position");
-        curr = albums.get(position);
+        curr_album = albums.get(bundle.getInt("album_position"));
 
         listView = findViewById(R.id.photos_list);
-        PhotoList photoList = new PhotoList(this, curr.getPhotos());
+        PhotoList photoList = new PhotoList(this, curr_album.getPhotos());
         photoList.setNotifyOnChange(true);
         listView.setAdapter(photoList);
         listView.setChoiceMode(1);
@@ -127,8 +127,8 @@ public class OpenAlbum extends AppCompatActivity {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putSerializable("photos", albums.get(position).getPhotos());
-        bundle.putInt("position", listView.getCheckedItemPosition());
+        bundle.putInt("album_position", album_position);
+        bundle.putInt("photo_position", listView.getCheckedItemPosition());
         Intent intent = new Intent(this, Display.class);
         intent.putExtras(bundle);
         startActivity(intent);
