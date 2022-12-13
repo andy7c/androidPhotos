@@ -7,60 +7,77 @@
     android:orientation="vertical"
     tools:context=".Display">
 
-    <ImageView
-        android:id="@+id/picture"
-        android:layout_width="match_parent"
-        android:layout_height="326dp"
-        android:scaleType="fitXY" />
-
-    <TextView
-        android:id="@+id/caption"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/previous"
-            android:layout_width="113dp"
-            android:layout_marginLeft="11dp"
-            android:layout_marginRight="160dp"
+            android:id="@+id/prev_img"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Previous" />
 
         <Button
-            android:id="@+id/next"
-            android:layout_width="113dp"
-            android:layout_marginRight="10dp"
+            android:id="@+id/next_img"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Next" />
-
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="match_parent"
+        android:layout_height="246dp"
+        android:scaleType="fitXY" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/add_tag"
-            android:layout_width="113dp"
+            android:id="@+id/addTag"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="140dp"
+            android:layout_weight="1"
             android:text="Add Tag" />
 
         <Button
-            android:id="@+id/delete_tag"
-            android:layout_width="match_parent"
+            android:id="@+id/removeTag"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Delete Tag" />
+            android:layout_weight="1"
+            android:text="Remove Tag" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:text="Caption: "
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/captionText"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:text="Tags: "
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tagsText"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:textSize="24sp" />
 
 </LinearLayout>
