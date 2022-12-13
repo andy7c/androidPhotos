@@ -25,7 +25,7 @@ public class Display extends AppCompatActivity {
         ImageView image = findViewById(R.id.picture);
         image.setImageBitmap(p.image.getBitmap());
         TextView caption = findViewById(R.id.captionText);
-        caption.setText("asdf");
+        caption.setText(p.caption);
 
 
     }
