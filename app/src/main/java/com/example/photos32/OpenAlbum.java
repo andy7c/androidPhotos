@@ -23,6 +23,7 @@ import com.example.photos32.models.Photo;
 import com.example.photos32.models.SerImage;
 
 import java.io.FileDescriptor;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class OpenAlbum extends AppCompatActivity {
@@ -118,6 +119,19 @@ public class OpenAlbum extends AppCompatActivity {
         p.remove(photo);
         p.notifyDataSetChanged();
         DataHelper.save(albums, path);
+    }
+    public void displayPhoto(View view){
+        Object o = listView.getItemAtPosition(listView.getCheckedItemPosition());
+        if (o == null) {
+            //error
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("photos", albums.get(position).getPhotos());
+        bundle.putInt("position", listView.getCheckedItemPosition());
+        Intent intent = new Intent(this, Display.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
 
