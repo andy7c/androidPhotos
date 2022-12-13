@@ -5,19 +5,27 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba4ebe01-676b-418b-af27-3b4a42a2b727" name="Changes" comment="">
+    <list default="true" id="ba4ebe01-676b-418b-af27-3b4a42a2b727" name="Changes" comment="Added display class and xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/Display.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/OpenAlbum.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/OpenAlbum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/display.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/display.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/open_album.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/open_album.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/ahmedishaque/.android/avd/Nexus_4_API_29.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\12and\.android\avd\Nexus_4_API_29.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -35,6 +43,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2ImQRCVBqflq3leMBTKcvVAPsPW" />
   <component name="ProjectViewState">
@@ -127,6 +138,21 @@
       <option name="presentableId" value="Default" />
       <updated>1670784268884</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added display class and xml">
+      <created>1670889214135</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670889214135</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added display class and xml">
+      <created>1670889344072</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670889344072</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,5 +165,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added display class and xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added display class and xml" />
   </component>
 </project>
