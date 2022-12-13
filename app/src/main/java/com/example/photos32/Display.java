@@ -17,10 +17,12 @@ public class Display extends AppCompatActivity {
     private int album_position;
     private ImageView image;
     private TextView caption;
+    private TextView tags;
 
     private void updateDisplay() {
         image.setImageBitmap(curr.image.getBitmap());
         caption.setText(curr.caption);
+        tags.setText(curr.tagToString());
     }
 
     @Override
@@ -34,6 +36,7 @@ public class Display extends AppCompatActivity {
         curr = photos.get(photo_position);
         image = findViewById(R.id.picture);
         caption = findViewById(R.id.captionText);
+        tags = findViewById(R.id.tagsText);
         updateDisplay();
     }
 }

@@ -15,6 +15,22 @@ public class Photo implements Serializable {
 
     public Photo() {}
 
+    public String tagToString() {
+        String tagList = "\nTags - ";
+        if(tags==null) {
+            return "";
+        }
+        for(int i = 0; i < tags.size(); i++) {
+            if(i==tags.size()-1) {
+                tagList+= tags.get(i).toString();
+            }
+            else {
+                tagList+= tags.get(i).toString() + ", ";
+            }
+        }
+        return tagList;
+    }
+
 }
 
 
