@@ -1,17 +1,20 @@
 package com.example.photos32;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.photos32.models.Album;
 import com.example.photos32.models.Photo;
 
 import java.util.ArrayList;
 
 public class Display extends AppCompatActivity {
     private ArrayList<Photo> photos;
+    private Album curr_album;
     private Photo curr;
     private int photo_position;
     private int album_position;
@@ -32,11 +35,33 @@ public class Display extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         photo_position = bundle.getInt("photo_position");
         album_position = bundle.getInt("album_position");
-        photos = Albums.albums.get(album_position).getPhotos();
+        curr_album = Albums.albums.get(album_position);
+        photos = curr_album.getPhotos();
         curr = photos.get(photo_position);
         image = findViewById(R.id.picture);
         caption = findViewById(R.id.captionText);
         tags = findViewById(R.id.tagsText);
         updateDisplay();
     }
+
+    public void nextPhoto(View view) {
+        if (photo_position == curr_album.getPhotos().size()-1) {
+            //error
+            return;
+        }
+        photo_position++;
+        curr = photos.get(photo_position);
+        updateDisplay();
+    }
+
+    public void prevPhoto(View view) {
+        if (photo_position == 0) {
+            //error
+            return;
+        }
+        photo_position--;
+        curr = photos.get(photo_position);
+        updateDisplay();
+    }
+
 }

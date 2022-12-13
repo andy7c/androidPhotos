@@ -17,14 +17,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Previous" />
+            android:text="Previous"
+            android:onClick="prevPhoto"/>
 
         <Button
             android:id="@+id/next_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Next" />
+            android:text="Next"
+            android:onClick="nextPhoto"/>
     </LinearLayout>
 
     <ImageView
