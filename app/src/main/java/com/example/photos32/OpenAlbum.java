@@ -49,7 +49,8 @@ public class OpenAlbum extends AppCompatActivity {
 
         System.out.println("in OpenAlbum.java now");
         Bundle bundle = getIntent().getExtras();
-        curr_album = albums.get(bundle.getInt("album_position"));
+        album_position = bundle.getInt("album_position");
+        curr_album = albums.get(album_position);
 
         listView = findViewById(R.id.photos_list);
         PhotoList photoList = new PhotoList(this, curr_album.getPhotos());
