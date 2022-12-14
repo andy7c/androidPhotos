@@ -4,9 +4,11 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,13 +16,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.example.photos32.models.Album;
 import com.example.photos32.models.Photo;
 import com.example.photos32.models.SerImage;
+import com.example.photos32.models.Tag;
 
 import java.io.FileDescriptor;
 import java.io.Serializable;
@@ -104,6 +109,57 @@ public class OpenAlbum extends AppCompatActivity {
         intent.setType("image/*");
         addPhotoActivity.launch(intent);
     }
+
+    public void movePhoto(View view){
+        Object o = listView.getItemAtPosition(listView.getCheckedItemPosition());
+        if (o == null) {
+            //error
+            return;
+        }
+        Photo photo = (Photo) o;
+
+        ArrayList<String> albumArray = new ArrayList<>();
+        for (Album a : albums) {
+            if(a!=curr_album) {
+                albumArray.add(a.toString());
+            }
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, albumArray);
+
+        View alertView = getLayoutInflater().inflate(R.layout.move_photo_alert, null);
+
+        Spinner spin = alertView.findViewById(R.id.mySpinner);
+        spin.setAdapter(adapter);
+
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        b.setView(alertView);
+
+        b.setPositiveButton("Move", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String albumName = spin.getSelectedItem().toString();
+                for (Album a : albums) {
+                    if (a.toString().equals(albumName)) {
+                        a.addPhoto(photo);
+                        removePhoto(view);
+                        DataHelper.save(Albums.albums, Albums.path);
+                        return;
+                    }
+                }
+            }
+        });
+        b.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog d = b.create();
+        d.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        d.show();
+    }
+
 
     public void removePhoto(View view) {
         Object o = listView.getItemAtPosition(listView.getCheckedItemPosition());
