@@ -69,10 +69,8 @@ public class Albums extends AppCompatActivity {
     public void openAlbum(View view) {
         //make intent and bundle and send to new screen
         Object o = listView.getItemAtPosition(listView.getCheckedItemPosition());
-        System.out.println("Opening albums");
         if (o == null) {
             //error
-            System.out.println("this is what's happening");
             return;
         }
         Album a = (Album) o;
@@ -82,6 +80,22 @@ public class Albums extends AppCompatActivity {
         intent.putExtras(bundle);
         System.out.println("starting activity");
         startActivity(intent);
+    }
+
+    public void removeAlbum(View view) {
+        Object o = listView.getItemAtPosition(listView.getCheckedItemPosition());
+        if (o == null) {
+            //error
+            return;
+        }
+        Album a = (Album) o;
+        final ArrayAdapter<Album> adapter = (ArrayAdapter<Album>) listView.getAdapter();
+        adapter.remove(a);
+        ArrayList<Album> al = new ArrayList<>();
+        for (int i = 0; i < adapter.getCount(); i++) {
+            al.add(adapter.getItem(i));
+        }
+        DataHelper.save(al, path);
     }
 
     public void addAlbum(View view) {
