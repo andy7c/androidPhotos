@@ -1,14 +1,23 @@
 package com.example.photos32;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.photos32.models.Album;
 import com.example.photos32.models.Photo;
+import com.example.photos32.models.Tag;
 
 import java.util.ArrayList;
 
@@ -42,6 +51,46 @@ public class Display extends AppCompatActivity {
         caption = findViewById(R.id.captionText);
         tags = findViewById(R.id.tagsText);
         updateDisplay();
+    }
+
+    public void addTag(View view) {
+        String [] s = {"Person", "Location"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, s);
+
+        View alertView = getLayoutInflater().inflate(R.layout.alert, null);
+
+        Spinner spin = alertView.findViewById(R.id.mySpinner);
+        EditText value = alertView.findViewById(R.id.tagValue);
+        spin.setAdapter(adapter);
+
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        b.setView(alertView);
+
+        b.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String type = spin.getSelectedItem().toString();
+                Tag t;
+                if (type.isEmpty()) {
+                    //error
+                    return;
+                } else {
+                    t = new Tag(type, value.getText().toString());
+                }
+                curr.tags.add(t);
+                updateDisplay();
+                DataHelper.save(Albums.albums, Albums.path);
+            }
+        });
+        b.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog d = b.create();
+        d.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        d.show();
     }
 
     public void nextPhoto(View view) {

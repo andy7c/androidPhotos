@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class Albums extends AppCompatActivity {
     private ListView listView;
     public static ArrayList<Album> albums;
-    private String path;
+    public static String path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
