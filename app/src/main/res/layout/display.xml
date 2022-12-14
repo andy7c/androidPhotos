@@ -50,6 +50,14 @@
             android:onClick="addTag"/>
 
         <Button
+            android:id="@+id/editCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Edit Caption"
+            android:onClick="editCaption"/>
+
+        <Button
             android:id="@+id/removeTag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

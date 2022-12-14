@@ -34,7 +34,7 @@ import java.util.ArrayList;
 public class OpenAlbum extends AppCompatActivity {
 
     ArrayList<Album> albums;
-    private ListView listView;
+    public static ListView listView;
     private String path;
     private int album_position;
     private Album curr_album;

@@ -3,6 +3,7 @@ package com.example.photos32;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.InputType;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
@@ -51,6 +52,34 @@ public class Display extends AppCompatActivity {
         caption = findViewById(R.id.captionText);
         tags = findViewById(R.id.tagsText);
         updateDisplay();
+    }
+
+    public void editCaption(View view) {
+        final AlertDialog.Builder b = new AlertDialog.Builder(this);
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setText(curr.caption);
+        b.setTitle("Edit Caption");
+        b.setView(input);
+        b.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                curr.caption = input.getText().toString();
+                updateDisplay();
+                PhotoList p = (PhotoList) OpenAlbum.listView.getAdapter();
+                p.notifyDataSetChanged();
+                DataHelper.save(Albums.albums, Albums.path);
+            }
+        });
+        b.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog d = b.create();
+        d.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        d.show();
     }
 
     public void removeTag(View view) {
