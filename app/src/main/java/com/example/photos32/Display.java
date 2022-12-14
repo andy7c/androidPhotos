@@ -53,6 +53,47 @@ public class Display extends AppCompatActivity {
         updateDisplay();
     }
 
+    public void removeTag(View view) {
+        ArrayList<String> tagsArray = new ArrayList<>();
+        for (Tag t : curr.tags) {
+            tagsArray.add(t.toString());
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, tagsArray);
+
+        View alertView = getLayoutInflater().inflate(R.layout.remove_tag_alert, null);
+
+        Spinner spin = alertView.findViewById(R.id.mySpinner);
+        spin.setAdapter(adapter);
+
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        b.setView(alertView);
+
+        b.setPositiveButton("Remove", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String tag = spin.getSelectedItem().toString();
+                for (Tag t : curr.tags) {
+                    if (tag.equals(t.toString())) {
+                        curr.tags.remove(t);
+                        updateDisplay();
+                        DataHelper.save(Albums.albums, Albums.path);
+                        return;
+                    }
+                }
+            }
+        });
+        b.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog d = b.create();
+        d.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        d.show();
+    }
+
     public void addTag(View view) {
         String [] s = {"Person", "Location"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, s);

@@ -14,9 +14,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba4ebe01-676b-418b-af27-3b4a42a2b727" name="Changes" comment="Added display class and xml">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/alert.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/remove_tag_alert.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/Albums.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/Albums.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/Display.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/display.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/display.xml" afterDir="false" />
     </list>
