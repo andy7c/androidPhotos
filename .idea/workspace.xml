@@ -14,19 +14,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba4ebe01-676b-418b-af27-3b4a42a2b727" name="Changes" comment="Added display class and xml">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/SearchResults.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/search_results.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/Albums.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/Albums.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/albums_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/albums_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/SearchResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/photos32/SearchResults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/search_results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/search_results.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\12and\.android\avd\Nexus_4_API_29.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/ahmedishaque/.android/avd/Nexus_4_API_29_2.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />

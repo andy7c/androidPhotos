@@ -28,6 +28,7 @@ public class Albums extends AppCompatActivity {
     private ListView listView;
     public static ArrayList<Album> albums;
     public static String path;
+    public static ArrayList<Photo> search_results;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,34 +72,33 @@ public class Albums extends AppCompatActivity {
     }
 
     public void search(View view){
-        View alertView = getLayoutInflater().inflate(R.layout.search, null);
-        EditText value = alertView.findViewById(R.id.search);
+        search_results = null;
         Intent intent = new Intent(this, SearchResults.class);
         AlertDialog.Builder b = new AlertDialog.Builder(this);
-        b.setView(alertView);
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        b.setTitle("Enter a tag value");
+        b.setView(input);
         ArrayList<Photo> matches = new ArrayList<Photo>();
         b.setPositiveButton("Search", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String input = value.getText().toString();
-                if (input.equals("")) {
+                String i = input.getText().toString();
+                if (i.equals("")) {
                     //error
                     return;
                 }
-                input = input.toLowerCase();
+                i = i.toLowerCase();
                for(Album a : albums){
                    for(Photo p : a.getPhotos()){
                        for(Tag t : p.tags){
-                           if(t.value.toLowerCase().startsWith(input)){
+                           if(t.value.toLowerCase().startsWith(i)){
                                 matches.add(p);
                            }
                        }
                    }
                }
-
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("matches", matches);
-                intent.putExtras(bundle);
+               search_results = matches;
                 startActivity(intent);
                 DataHelper.save(Albums.albums, Albums.path);
             }
@@ -126,6 +126,7 @@ public class Albums extends AppCompatActivity {
         Intent intent = new Intent(this, OpenAlbum.class);
         intent.putExtras(bundle);
         System.out.println("starting activity");
+        search_results = null;
         startActivity(intent);
     }
 
