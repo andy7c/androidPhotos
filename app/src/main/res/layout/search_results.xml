@@ -4,28 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Albums">
+    tools:context=".OpenAlbum">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/results"
         android:layout_width="match_parent"
         android:layout_height="69dp"
-        android:text="Albums"
+        android:fontFamily="sans-serif-medium"
+        android:text="SearchResults"
         android:textAlignment="center"
-        android:textSize="48sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:onClick="search"/>
+        android:textSize="48sp" />
 
     <ListView
-        android:id="@+id/albums_list"
+        android:id="@+id/photos_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,35 +26,34 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/add_album"
+            android:id="@+id/add_photo"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Add"
-            android:onClick="addAlbum"/>
-
+            android:onClick="addPhoto"/>
         <Button
-            android:id="@+id/edit_album"
+            android:id="@+id/move_photo"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Edit"
-            android:onClick="editAlbum"/>
-
+            android:text="Move"
+            android:onClick="movePhoto"/>
         <Button
-            android:id="@+id/open_album"
+            android:id="@+id/remove_photo"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Open"
-            android:onClick="openAlbum"/>
+            android:text="Remove"
+            android:onClick="removePhoto"/>
+
 
         <Button
-            android:id="@+id/delete_album"
+            android:id="@+id/display_photo"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Delete"
-            android:onClick="removeAlbum"/>
+            android:text="Display"
+            android:onClick="displayPhoto"/>
     </LinearLayout>
 </LinearLayout>

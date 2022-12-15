@@ -15,11 +15,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.photos32.models.Album;
+import com.example.photos32.models.Photo;
+import com.example.photos32.models.Tag;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Albums extends AppCompatActivity {
     private ListView listView;
@@ -65,6 +68,50 @@ public class Albums extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void search(View view){
+        View alertView = getLayoutInflater().inflate(R.layout.search, null);
+        EditText value = alertView.findViewById(R.id.search);
+        Intent intent = new Intent(this, SearchResults.class);
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        b.setView(alertView);
+        ArrayList<Photo> matches = new ArrayList<Photo>();
+        b.setPositiveButton("Search", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String input = value.getText().toString();
+                if (input.equals("")) {
+                    //error
+                    return;
+                }
+                input = input.toLowerCase();
+               for(Album a : albums){
+                   for(Photo p : a.getPhotos()){
+                       for(Tag t : p.tags){
+                           if(t.value.toLowerCase().startsWith(input)){
+                                matches.add(p);
+                           }
+                       }
+                   }
+               }
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("matches", matches);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                DataHelper.save(Albums.albums, Albums.path);
+            }
+        });
+        b.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog d = b.create();
+        d.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        d.show();
     }
     public void openAlbum(View view) {
         //make intent and bundle and send to new screen
