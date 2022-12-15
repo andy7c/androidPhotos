@@ -156,6 +156,16 @@ public class Albums extends AppCompatActivity {
         b.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                for (int i = 0; i < adapter.getCount(); i++) {
+                    if (adapter.getItem(i).getName().equals(input.getText().toString())) {
+                        new AlertDialog.Builder(b.getContext())
+                                .setMessage("An album with this name already exists.")
+                                .setPositiveButton("OK", null)
+                                .show();
+
+                        return;
+                    }
+                }
                 Album newAlbum = new Album(input.getText().toString());
                 adapter.add(newAlbum);
                 ArrayList<Album> al = new ArrayList<>();
